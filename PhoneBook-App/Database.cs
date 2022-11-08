@@ -23,7 +23,7 @@ internal class Database
                 db.Contacts.Remove(Contact);
                 db.SaveChanges();
             } 
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("This record doesn't exist!");
             }
