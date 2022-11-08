@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 internal class Database
 {
@@ -17,8 +18,15 @@ internal class Database
         {
             var Contact = new ContactClass { Id = Id };
 
-            db.Contacts.Remove(Contact);
-            db.SaveChanges();
+            try
+            {
+                db.Contacts.Remove(Contact);
+                db.SaveChanges();
+            } 
+            catch (Exception e)
+            {
+                Console.WriteLine("This record doesn't exist!");
+            }
         }
     }
 }
