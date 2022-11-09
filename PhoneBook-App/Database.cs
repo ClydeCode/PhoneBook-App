@@ -1,6 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
-
+﻿
 internal class Database
 {
     internal void Add(ContactClass Contact)
