@@ -42,6 +42,7 @@
         TVEngine.Add(Database.ReadAll());
         Console.Clear();
         TVEngine.Print();
+        TVEngine.Clear();
     }
 
     private void AddContact()
