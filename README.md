@@ -1,6 +1,6 @@
 # PhoneBook-App
 
-In this App you can save your contacts.
+In this App you can hold and manage your contacts.
 
 #
 I learned and deepened my knowledge in
