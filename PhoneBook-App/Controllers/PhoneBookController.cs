@@ -52,13 +52,7 @@ internal class PhoneBookController
         string Name = GetUserInput.GetString("Name");
         string PhoneNumber = GetUserInput.GetString("Phone Number");
 
-        try
-        {
-            Database.Add(new ContactClass { Name = Name, PhoneNumber = PhoneNumber });
-
-            Console.WriteLine("\nOperation was successful!");
-        }
-        catch (InvalidOperationException) { Console.WriteLine("\nERROR: Operation was unsuccessful!"); }
+        Database.Add(new ContactClass { Name = Name, PhoneNumber = PhoneNumber });
     }
 
     private void DeleteContact()

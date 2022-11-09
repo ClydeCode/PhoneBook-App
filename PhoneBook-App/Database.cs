@@ -5,8 +5,17 @@ internal class Database
     {
         using (var db = new PhoneBookContext())
         {
-            db.Contacts.Add(Contact);
-            db.SaveChanges();
+            try
+            {
+                db.Contacts.Add(Contact);
+                db.SaveChanges();
+
+                Console.WriteLine("\nOperation was successful!");
+            }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine("\nERROR: Operation was unsuccessful!");
+            }
         }
     }
 
