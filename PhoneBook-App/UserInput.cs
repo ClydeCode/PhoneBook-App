@@ -1,5 +1,5 @@
 ﻿
-static class GetUserInput
+static class UserInput
 {
     static internal int GetInt(string Title)
     {

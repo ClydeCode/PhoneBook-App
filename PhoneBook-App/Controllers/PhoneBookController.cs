@@ -48,24 +48,24 @@ internal class PhoneBookController
 
     private void AddContact()
     {
-        string Name = GetUserInput.GetString("Name");
-        string PhoneNumber = GetUserInput.GetString("Phone Number");
+        string Name = UserInput.GetString("Name");
+        string PhoneNumber = UserInput.GetString("Phone Number");
 
         Database.Add(new ContactClass { Name = Name, PhoneNumber = PhoneNumber });
     }
 
     private void DeleteContact()
     {
-        int Id = GetUserInput.GetInt("ID");
+        int Id = UserInput.GetInt("ID");
 
         Database.Delete(Id);
     }
 
     private void UpdateContact()
     {
-        int Id = GetUserInput.GetInt("ID");
-        string Name = GetUserInput.GetString("Name");
-        string PhoneNumber = GetUserInput.GetString("Phone Number");
+        int Id = UserInput.GetInt("ID");
+        string Name = UserInput.GetString("Name");
+        string PhoneNumber = UserInput.GetString("Phone Number");
 
         Database.Update(new ContactClass { Id = Id, Name = Name, PhoneNumber = PhoneNumber });
     }
