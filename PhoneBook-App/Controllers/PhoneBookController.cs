@@ -1,4 +1,6 @@
-﻿internal class PhoneBookController
+﻿using Microsoft.Data.SqlClient;
+
+internal class PhoneBookController
 {
     readonly Database Database = new();
     readonly TableVisualisationEngine TVEngine = new();
@@ -47,7 +49,16 @@
 
     private void AddContact()
     {
-        throw new NotImplementedException();
+        string Name = GetUserInput.GetString("Name");
+        string PhoneNumber = GetUserInput.GetString("Phone Number");
+
+        try
+        {
+            Database.Add(new ContactClass { Name = Name, PhoneNumber = PhoneNumber });
+
+            Console.WriteLine("\nOperation was successful!");
+        }
+        catch (InvalidOperationException) { Console.WriteLine("\nERROR: Operation was unsuccessful!"); }
     }
 
     private void DeleteContact()
