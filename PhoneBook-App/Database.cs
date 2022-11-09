@@ -1,6 +1,22 @@
 ﻿
 internal class Database
 {
+    internal Database()
+    {
+        using (var db = new PhoneBookContext())
+        {
+            try
+            {
+                db.Database.EnsureCreated();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                Environment.Exit(1);
+            }
+        }
+    }
+
     internal void Add(ContactClass Contact)
     {
         using (var db = new PhoneBookContext())
