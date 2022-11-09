@@ -57,14 +57,28 @@ internal class Database
         {
             
             Record = db.Contacts
-                .Where(record => record.Id == Id)
-                .Select(record => new ContactClass { Id = record.Id, Name = record.Name, PhoneNumber = record.PhoneNumber })
+                .Where(Record => Record.Id == Id)
+                .Select(Record => new ContactClass { Id = Record.Id, Name = Record.Name, PhoneNumber = Record.PhoneNumber })
                 .FirstOrDefault();
             
             if (Record == null) Console.WriteLine("This record doesn't exist!");
         }
 
         return Record!;
+    }
+
+    internal List<ContactClass> ReadAll()
+    {
+        List<ContactClass> Records;
+
+        using (var db = new PhoneBookContext())
+        {
+            Records = db.Contacts
+                .Select(Record => new ContactClass { Id = Record.Id, Name = Record.Name, PhoneNumber = Record.PhoneNumber })
+                .ToList();
+        }
+
+        return Records;
     }
 }
 
