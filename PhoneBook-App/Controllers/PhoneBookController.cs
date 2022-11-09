@@ -63,7 +63,9 @@ internal class PhoneBookController
 
     private void DeleteContact()
     {
-        throw new NotImplementedException();
+        int Id = GetUserInput.GetInt("ID");
+
+        Database.Delete(Id);
     }
 
     private void UpdateContact()
