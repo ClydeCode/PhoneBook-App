@@ -1,13 +1,13 @@
 ﻿
 static class GetUserInput
 {
-    static internal int GetInt()
+    static internal int GetInt(string title)
     {
         int x = 0;
 
         while(x == 0)
         {
-            Console.WriteLine("\nInput a number: ");
+            Console.WriteLine($"\nInput [{title}]: ");
             string? Input = Console.ReadLine();
 
             Int32.TryParse(Input, out x);
@@ -24,7 +24,7 @@ static class GetUserInput
 
         while (Input == "")
         {
-            Console.WriteLine($"Input a {title}: ");
+            Console.WriteLine($"Input [{title}]: ");
             Input = Console.ReadLine();
         }
 
