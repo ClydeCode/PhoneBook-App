@@ -1,5 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-
+﻿
 internal class PhoneBookController
 {
     readonly Database Database = new();
@@ -64,7 +63,11 @@ internal class PhoneBookController
 
     private void UpdateContact()
     {
-        throw new NotImplementedException();
+        int Id = GetUserInput.GetInt("ID");
+        string Name = GetUserInput.GetString("Name");
+        string PhoneNumber = GetUserInput.GetString("Phone Number");
+
+        Database.Update(new ContactClass { Id = Id, Name = Name, PhoneNumber = PhoneNumber });
     }
 
 
