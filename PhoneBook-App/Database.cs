@@ -29,6 +29,8 @@ internal class Database
             {
                 db.Contacts.Remove(Contact);
                 db.SaveChanges();
+
+                Console.WriteLine("\nOperation was successful!");
             } 
             catch (Exception)
             {
