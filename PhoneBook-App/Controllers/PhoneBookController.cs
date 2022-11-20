@@ -59,6 +59,8 @@ internal class PhoneBookController
 
     private void DeleteContact()
     {
+        ShowContacts();
+
         int Id = UserInput.GetInt("ID");
 
         Database.Delete(Id);
@@ -66,6 +68,8 @@ internal class PhoneBookController
 
     private void UpdateContact()
     {
+        ShowContacts();
+
         int Id = UserInput.GetInt("ID");
         string Name = UserInput.GetString("Name");
         string PhoneNumber = UserInput.GetString("Phone Number");
