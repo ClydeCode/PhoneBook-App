@@ -49,7 +49,7 @@ internal class PhoneBookController
     private void AddContact()
     {
         string Name = UserInput.GetString("Name");
-        string PhoneNumber = UserInput.GetString("Phone Number");
+        string PhoneNumber = UserInput.GetPhoneNumber();
 
         Database.Add(new ContactClass { 
             Name = Name, 
@@ -72,7 +72,7 @@ internal class PhoneBookController
 
         int Id = UserInput.GetInt("ID");
         string Name = UserInput.GetString("Name");
-        string PhoneNumber = UserInput.GetString("Phone Number");
+        string PhoneNumber = UserInput.GetPhoneNumber();
 
         Database.Update(new ContactClass { 
             Id = Id, 
