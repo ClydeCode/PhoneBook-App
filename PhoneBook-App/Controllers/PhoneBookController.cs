@@ -2,7 +2,7 @@
 internal class PhoneBookController
 {
     readonly Database Database = new();
-    readonly TableVisualisationEngine TVEngine = new();
+    readonly TableVisualisationEngine TableVisualisationEngine = new();
     internal void ShowMenu()
     {
         Console.Clear();
@@ -40,10 +40,10 @@ internal class PhoneBookController
 
     private void ShowContacts()
     {
-        TVEngine.Add(Database.ReadAll());
         Console.Clear();
-        TVEngine.Print();
-        TVEngine.Clear();
+        TableVisualisationEngine.Add(Database.ReadAll());
+        TableVisualisationEngine.Print();
+        TableVisualisationEngine.Clear();
     }
 
     private void AddContact()
@@ -51,7 +51,10 @@ internal class PhoneBookController
         string Name = UserInput.GetString("Name");
         string PhoneNumber = UserInput.GetString("Phone Number");
 
-        Database.Add(new ContactClass { Name = Name, PhoneNumber = PhoneNumber });
+        Database.Add(new ContactClass { 
+            Name = Name, 
+            PhoneNumber = PhoneNumber 
+        });
     }
 
     private void DeleteContact()
@@ -67,9 +70,11 @@ internal class PhoneBookController
         string Name = UserInput.GetString("Name");
         string PhoneNumber = UserInput.GetString("Phone Number");
 
-        Database.Update(new ContactClass { Id = Id, Name = Name, PhoneNumber = PhoneNumber });
+        Database.Update(new ContactClass { 
+            Id = Id, 
+            Name = Name, 
+            PhoneNumber = PhoneNumber 
+        });
     }
-
-
 }
 
