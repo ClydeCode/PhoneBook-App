@@ -49,5 +49,20 @@ static class UserInput
 
         return Input;
     }
+
+    static internal string GetUpdateOptionString()
+    {
+        string[] arr = { "1", "2" };
+
+        string? Input = "";
+
+        while (!Array.Exists(arr, element => element == Input))
+        {
+            Console.WriteLine($"Input [Option]: ");
+            Input = Console.ReadLine();
+        }
+
+        return Input;
+    }
 }
 
