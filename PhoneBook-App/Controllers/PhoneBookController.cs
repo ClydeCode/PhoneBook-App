@@ -71,14 +71,25 @@ internal class PhoneBookController
         ShowContacts();
 
         int Id = UserInput.GetInt("ID");
-        string Name = UserInput.GetString("Name");
-        string PhoneNumber = UserInput.GetPhoneNumber();
 
-        Database.Update(new ContactClass { 
-            Id = Id, 
-            Name = Name, 
-            PhoneNumber = PhoneNumber 
-        });
+        var Contact = Database.Read(Id);
+
+        if (Contact != null)
+        {
+            Console.WriteLine("What do you want to update?  1. Name     2. Phone Number");
+            string option = UserInput.GetUpdateOptionString();
+
+            switch(option)
+            {
+                case "1":
+                    Contact.Name = UserInput.GetString("Name");
+                    break;
+                case "2":
+                    Contact.PhoneNumber = UserInput.GetPhoneNumber();
+                    break;
+            }
+        }
+        Database.Update(Contact);
     }
 }
 
