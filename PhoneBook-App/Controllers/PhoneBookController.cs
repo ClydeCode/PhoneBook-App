@@ -12,9 +12,9 @@
         Console.WriteLine("5. Exit");
     }
 
-    internal void Navigate(int Option)
+    internal void Navigate(int option)
     {
-        switch (Option)
+        switch (option)
         {
             case 1:
                 ShowContacts();
@@ -47,12 +47,12 @@
 
     private void AddContact()
     {
-        string Name = UserInput.GetString("Name");
-        string PhoneNumber = UserInput.GetPhoneNumber();
+        string name = UserInput.GetString("Name");
+        string phoneNumber = UserInput.GetPhoneNumber();
 
         Database.Add(new ContactClass { 
-            Name = Name, 
-            PhoneNumber = PhoneNumber 
+            Name = name, 
+            PhoneNumber = phoneNumber 
         });
     }
 
@@ -60,20 +60,20 @@
     {
         ShowContacts();
 
-        int Id = UserInput.GetInt("ID");
+        int id = UserInput.GetInt("ID");
 
-        Database.Delete(Id);
+        Database.Delete(id);
     }
 
     private void UpdateContact()
     {
         ShowContacts();
 
-        int Id = UserInput.GetInt("ID");
+        int id = UserInput.GetInt("ID");
 
-        var Contact = Database.Read(Id);
+        var contact = Database.Read(id);
 
-        if (Contact != null)
+        if (contact != null)
         {
             Console.WriteLine("What do you want to update?  1. Name     2. Phone Number");
             string option = UserInput.GetUpdateOptionString();
@@ -81,14 +81,14 @@
             switch(option)
             {
                 case "1":
-                    Contact.Name = UserInput.GetString("Name");
+                    contact.Name = UserInput.GetString("Name");
                     break;
                 case "2":
-                    Contact.PhoneNumber = UserInput.GetPhoneNumber();
+                    contact.PhoneNumber = UserInput.GetPhoneNumber();
                     break;
             }
         }
-        Database.Update(Contact);
+        Database.Update(contact);
     }
 }
 

@@ -2,16 +2,16 @@
 
 static class UserInput
 {
-    static internal int GetInt(string Title)
+    static internal int GetInt(string title)
     {
         int value = 0;
 
         while(value == 0)
         {
-            Console.WriteLine($"\nInput [{Title}]: ");
-            string? Input = Console.ReadLine();
+            Console.WriteLine($"\nInput [{title}]: ");
+            string? input = Console.ReadLine();
 
-            Int32.TryParse(Input, out value);
+            Int32.TryParse(input, out value);
 
             if (value == 0) Console.WriteLine("Wrong format!");
         }
@@ -23,45 +23,45 @@ static class UserInput
     {
         string pattern = "^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$";
 
-        string? Input = "";
+        string? input = "";
 
-        while (Input == "" || !Regex.IsMatch(Input, pattern))
+        while (input == "" || !Regex.IsMatch(input, pattern))
         {
             Console.WriteLine($"Input [Phone Number]: ");
-            Input = Console.ReadLine();
+            input = Console.ReadLine();
 
-            if (!Regex.IsMatch(Input, pattern)) Console.WriteLine("Wrong format!");
+            if (!Regex.IsMatch(input, pattern)) Console.WriteLine("Wrong format!");
         }
 
-        return Input;
+        return input;
     }
 
-    static internal string GetString(string Title)
+    static internal string GetString(string title)
     {
-        string? Input = "";
+        string? input = "";
 
-        while (Input == "")
+        while (input == "")
         {
-            Console.WriteLine($"Input [{Title}]: ");
-            Input = Console.ReadLine();
+            Console.WriteLine($"Input [{title}]: ");
+            input = Console.ReadLine();
         }
 
-        return Input;
+        return input;
     }
 
     static internal string GetUpdateOptionString()
     {
         string[] options = { "1", "2" };
 
-        string? Input = "";
+        string? input = "";
 
-        while (!Array.Exists(options, element => element == Input))
+        while (!Array.Exists(options, element => element == input))
         {
             Console.WriteLine($"Input [Option]: ");
-            Input = Console.ReadLine();
+            input = Console.ReadLine();
         }
 
-        return Input;
+        return input;
     }
 }
 
