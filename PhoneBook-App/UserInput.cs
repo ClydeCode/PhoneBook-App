@@ -21,16 +21,17 @@ static class UserInput
 
     static internal string GetPhoneNumber()
     {
-        string pattern = "^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$";
+        string pattern = "^[+]370[0-9]{8}";
 
         string? input = "";
 
-        while (input == "" || !Regex.IsMatch(input, pattern))
+        while (input.Length != 12 || !Regex.IsMatch(input, pattern))
         {
-            Console.WriteLine($"Input [Phone Number]: ");
+            Console.WriteLine($"Input Phone Number [+370********]: ");
             input = Console.ReadLine();
 
-            if (!Regex.IsMatch(input, pattern)) Console.WriteLine("Wrong format!");
+            if (!Regex.IsMatch(input, pattern) || input.Length != 12) 
+                Console.WriteLine("Wrong format!");
         }
 
         return input;
