@@ -1,5 +1,4 @@
-﻿
-internal class Database
+﻿internal class Database
 {
     internal Database()
     {

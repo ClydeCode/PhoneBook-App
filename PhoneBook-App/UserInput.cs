@@ -1,23 +1,22 @@
-﻿
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 static class UserInput
 {
     static internal int GetInt(string Title)
     {
-        int x = 0;
+        int value = 0;
 
-        while(x == 0)
+        while(value == 0)
         {
             Console.WriteLine($"\nInput [{Title}]: ");
             string? Input = Console.ReadLine();
 
-            Int32.TryParse(Input, out x);
+            Int32.TryParse(Input, out value);
 
-            if (x == 0) Console.WriteLine("Wrong format!");
+            if (value == 0) Console.WriteLine("Wrong format!");
         }
 
-        return x;
+        return value;
     }
 
     static internal string GetPhoneNumber()
@@ -52,11 +51,11 @@ static class UserInput
 
     static internal string GetUpdateOptionString()
     {
-        string[] arr = { "1", "2" };
+        string[] options = { "1", "2" };
 
         string? Input = "";
 
-        while (!Array.Exists(arr, element => element == Input))
+        while (!Array.Exists(options, element => element == Input))
         {
             Console.WriteLine($"Input [Option]: ");
             Input = Console.ReadLine();

@@ -1,5 +1,4 @@
-﻿
-internal class PhoneBookController
+﻿internal class PhoneBookController
 {
     readonly Database Database = new();
     readonly TableVisualisationEngine TableVisualisationEngine = new();
